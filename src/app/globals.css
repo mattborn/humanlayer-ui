@@ -2,13 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -70,6 +63,180 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
   }
+}
+
+body {
+  font: 14px/1 'DM Sans', system-ui, sans-serif;
+}
+
+/* typography */
+
+h1 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  border-bottom: 1px solid currentColor;
+}
+
+li,
+p,
+pre {
+  line-height: 20px;
+}
+pre {
+  font-family: 'DM Mono', monospace;
+  overflow-x: auto;
+}
+
+summary {
+  margin: 0 0 1rem;
+}
+
+ul {
+  padding: 0 0 0 1rem;
+}
+
+/* font awesome */
+
+i {
+  font-size: 1rem;
+}
+
+/* app */
+
+/* layout */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #eee;
+  display: flex;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  padding: 1rem 1rem 1rem 0;
+}
+
+#menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 1rem;
+  transition: width 0.2s;
+  width: 12rem;
+}
+
+#page {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px #0121;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: scroll;
+}
+
+header {
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+main {
+  padding: 1.5rem;
+}
+
+/* menu */
+
+#menu.collapsed {
+  width: 4.5rem;
+}
+
+.button {
+  align-items: center;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  height: 2.5rem;
+  padding: 12px;
+  white-space: nowrap;
+}
+.button:hover,
+.button.selected {
+  background: #ddd;
+}
+
+.button::after {
+  content: attr(data-label);
+}
+.collapsed .button::after {
+  content: unset;
+}
+
+#expand {
+  display: none;
+}
+.collapsed #expand {
+  display: unset;
+}
+.collapsed #collapse {
+  display: none;
+}
+
+.button i {
+  text-align: center;
+  width: 1rem;
+}
+
+/* header */
+
+#hmark {
+  fill: currentColor;
+  width: 2.5rem;
+}
+
+/* markdown */
+
+#readme {
+  margin: 0 auto;
+  max-width: 40rem;
+}
+
+#readme h1 {
+  font-size: 4rem;
+  letter-spacing: -0.06em;
+}
+#readme h2 {
+  font-size: 3rem;
+  letter-spacing: -0.05em;
+  margin: 2rem 0 0;
+}
+#readme h3 {
+  font-size: 2rem;
+  letter-spacing: -0.04em;
+  margin: 2rem 0 0;
+}
+
+pre {
+  background: #eee;
+  border-radius: 8px;
+  line-height: 20px;
+  padding: 12px;
+}
+
+code:not(pre code) {
+  background: #eee;
+  border-radius: 4px;
+  padding: 2px 4px;
 }
